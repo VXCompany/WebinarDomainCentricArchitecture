@@ -1,20 +1,38 @@
 ﻿using TechTalk.SpecFlow;
+using Web.Controllers;
+using Web.Dto;
 
 namespace Specifications.Steps
 {
     [Binding]
     public class OrderStepDefinitions
     {
+        private readonly ScenarioContext _scenarioContext;
+
+        public OrderStepDefinitions(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext ?? throw new System.ArgumentNullException(nameof(scenarioContext));
+        }
+
         [Given(@"'(.*)' afgenomen produkten")]
         public void GegevenAfgenomenProdukten(int aantal)
         {
-            ScenarioContext.Current.Pending();
+            _scenarioContext["aantal"] = aantal;
         }
 
         [When(@"ik produkten bestel")]
         public void AlsIkProduktenBestel()
         {
-            ScenarioContext.Current.Pending();
+            var orderDto = new OrderDto
+            {
+                Klantnummer = 123,
+                ProduktIdentificatie = "Appel",
+                Aantal = (int)_scenarioContext["aantal"],
+            };
+
+            var controller = new OrderController();
+
+            controller.PlaatsOrder(orderDto);
         }
 
         [Then(@"wordt er '(.*)' procent korting gegeven")]

@@ -13,13 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainCentric", "DomainCent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "src\ThreeLayered\BusinessLayer\BusinessLayer.csproj", "{B132F659-9E02-43B3-929C-D71C91C62F83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "src\ThreeLayered\DataLayer\DataLayer.csproj", "{BB9088E9-F769-4438-A89C-3CCEBAA9F081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "src\ThreeLayered\DataLayer\DataLayer.csproj", "{BB9088E9-F769-4438-A89C-3CCEBAA9F081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\DomainCentric\Domain\Domain.csproj", "{E994700E-0A6A-40C5-BA56-27308E93D282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\DomainCentric\Domain\Domain.csproj", "{E994700E-0A6A-40C5-BA56-27308E93D282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\DomainCentric\Infrastructure\Infrastructure.csproj", "{63A48E7B-2C75-4DD2-BFA6-A47C7A04F69E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\DomainCentric\Infrastructure\Infrastructure.csproj", "{63A48E7B-2C75-4DD2-BFA6-A47C7A04F69E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServices", "ApplicationServices\ApplicationServices.csproj", "{DA1A2397-7BBE-4F08-AE73-3ECDFFDD35AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationServices", "ApplicationServices\ApplicationServices.csproj", "{DA1A2397-7BBE-4F08-AE73-3ECDFFDD35AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E171F2B1-9A64-4310-8B02-DF7F79383D2F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
