@@ -3,13 +3,24 @@
 namespace Specifications.Steps
 {
     [Binding]
-    public sealed class OrderStepDefinitions
+    public class OrderStepDefinitions
     {
-        private readonly ScenarioContext _scenarioContext;
-
-        public OrderStepDefinitions(ScenarioContext scenarioContext)
+        [Given(@"'(.*)' afgenomen produkten")]
+        public void GegevenAfgenomenProdukten(int p0)
         {
-            _scenarioContext = scenarioContext;
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"ik produkten bestel")]
+        public void AlsIkProduktenBestel()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"wordt er '(.*)' procent korting gegeven")]
+        public void DanWordtErProcentKortingGegeven(int p0)
+        {
+            ScenarioContext.Current.Pending();
         }
     }
 }
