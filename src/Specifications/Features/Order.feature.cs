@@ -19,7 +19,7 @@ namespace Specifications.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class _5KortingToepassenVoorEenSpecifiekeKlantFeature : object, Xunit.IClassFixture<_5KortingToepassenVoorEenSpecifiekeKlantFeature.FixtureData>, System.IDisposable
+    public partial class KortingToepassenBijMeerdereProduktenFeature : object, Xunit.IClassFixture<KortingToepassenBijMeerdereProduktenFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace Specifications.Features
 #line 1 "Order.feature"
 #line hidden
         
-        public _5KortingToepassenVoorEenSpecifiekeKlantFeature(_5KortingToepassenVoorEenSpecifiekeKlantFeature.FixtureData fixtureData, Specifications_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public KortingToepassenBijMeerdereProduktenFeature(KortingToepassenBijMeerdereProduktenFeature.FixtureData fixtureData, Specifications_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace Specifications.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("nl-NL"), "5% korting toepassen voor een specifieke klant", "Als klant wil ik 5% korting hebben op de aankoop als ik 10 of meer produkten afne" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("nl-NL"), "Korting toepassen bij meerdere produkten", "Als klant wil ik 5% korting hebben op de aankoop als ik 10 of meer produkten afne" +
                     "em.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -82,7 +82,7 @@ namespace Specifications.Features
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Bij afname van minder dan 10 produkten wordt er geen korting gegeven")]
-        [Xunit.TraitAttribute("FeatureTitle", "5% korting toepassen voor een specifieke klant")]
+        [Xunit.TraitAttribute("FeatureTitle", "Korting toepassen bij meerdere produkten")]
         [Xunit.TraitAttribute("Description", "Bij afname van minder dan 10 produkten wordt er geen korting gegeven")]
         public virtual void BijAfnameVanMinderDan10ProduktenWordtErGeenKortingGegeven()
         {
@@ -110,13 +110,54 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given("{.} afgenomen produkten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
+ testRunner.Given("\'9\' afgenomen produkten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
 #line hidden
 #line 6
     testRunner.When("ik produkten bestel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Als ");
 #line hidden
 #line 7
-    testRunner.Then("wordt er {.} procent korting gegeven", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dan ");
+    testRunner.Then("wordt er \'0\' procent korting gegeven", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dan ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Bij afname van meer dan 10 produkten wordt er 5 procent korting gegeven")]
+        [Xunit.TraitAttribute("FeatureTitle", "Korting toepassen bij meerdere produkten")]
+        [Xunit.TraitAttribute("Description", "Bij afname van meer dan 10 produkten wordt er 5 procent korting gegeven")]
+        public virtual void BijAfnameVanMeerDan10ProduktenWordtEr5ProcentKortingGegeven()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bij afname van meer dan 10 produkten wordt er 5 procent korting gegeven", null, tagsOfScenario, argumentsOfScenario);
+#line 9
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 10
+ testRunner.Given("\'10\' afgenomen produkten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
+#line hidden
+#line 11
+    testRunner.When("ik produkten bestel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Als ");
+#line hidden
+#line 12
+    testRunner.Then("wordt er \'5\' procent korting gegeven", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dan ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -129,12 +170,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                _5KortingToepassenVoorEenSpecifiekeKlantFeature.FeatureSetup();
+                KortingToepassenBijMeerdereProduktenFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                _5KortingToepassenVoorEenSpecifiekeKlantFeature.FeatureTearDown();
+                KortingToepassenBijMeerdereProduktenFeature.FeatureTearDown();
             }
         }
     }

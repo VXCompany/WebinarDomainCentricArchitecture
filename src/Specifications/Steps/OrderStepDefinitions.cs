@@ -6,7 +6,7 @@ namespace Specifications.Steps
     public class OrderStepDefinitions
     {
         [Given(@"'(.*)' afgenomen produkten")]
-        public void GegevenAfgenomenProdukten(int p0)
+        public void GegevenAfgenomenProdukten(int aantal)
         {
             ScenarioContext.Current.Pending();
         }
@@ -18,7 +18,7 @@ namespace Specifications.Steps
         }
 
         [Then(@"wordt er '(.*)' procent korting gegeven")]
-        public void DanWordtErProcentKortingGegeven(int p0)
+        public void DanWordtErProcentKortingGegeven(int korting)
         {
             ScenarioContext.Current.Pending();
         }
