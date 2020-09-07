@@ -4,16 +4,14 @@ namespace DataLayer
 {
     public class WinkelDbContext : DbContext
     {
+        public WinkelDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Klant> Klanten { get; set; }
 
         public DbSet<Produkt> Produkten { get; set; }
 
         public DbSet<Order> Orders { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=Winkel;Integrated Security=True");
-        }
     }
 }

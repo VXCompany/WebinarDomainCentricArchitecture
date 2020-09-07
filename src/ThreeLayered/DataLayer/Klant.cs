@@ -7,6 +7,6 @@ namespace DataLayer
     {
         public int KlantId { get; set; }
 
-        public string Naam { get; set; }
+        public string KlantIdentificatie { get; set; }
     }
 }

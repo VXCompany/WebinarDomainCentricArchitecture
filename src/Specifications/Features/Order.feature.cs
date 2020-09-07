@@ -76,6 +76,27 @@ namespace Specifications.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line hidden
+#line 5
+    testRunner.Given("klant \'KL123\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Produkt identificatie",
+                        "Prijs"});
+            table1.AddRow(new string[] {
+                        "Appel",
+                        "0.58"});
+            table1.AddRow(new string[] {
+                        "Banaan",
+                        "0.98"});
+#line 6
+    testRunner.And("de volgende produkten", ((string)(null)), table1, "En ");
+#line hidden
+        }
+        
         void System.IDisposable.Dispose()
         {
             this.TestTearDown();
@@ -89,7 +110,7 @@ namespace Specifications.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bij afname van minder dan 10 produkten wordt er geen korting gegeven", null, tagsOfScenario, argumentsOfScenario);
-#line 4
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -109,13 +130,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 12
  testRunner.Given("\'9\' afgenomen produkten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
 #line hidden
-#line 6
+#line 13
     testRunner.When("ik produkten bestel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Als ");
 #line hidden
-#line 7
+#line 14
     testRunner.Then("wordt er \'0\' procent korting gegeven", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dan ");
 #line hidden
             }
@@ -130,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bij afname van meer dan 10 produkten wordt er 5 procent korting gegeven", null, tagsOfScenario, argumentsOfScenario);
-#line 9
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -150,13 +174,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 17
  testRunner.Given("\'10\' afgenomen produkten", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Gegeven ");
 #line hidden
-#line 11
+#line 18
     testRunner.When("ik produkten bestel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Als ");
 #line hidden
-#line 12
+#line 19
     testRunner.Then("wordt er \'5\' procent korting gegeven", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dan ");
 #line hidden
             }

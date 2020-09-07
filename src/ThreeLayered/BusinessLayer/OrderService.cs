@@ -1,10 +1,20 @@
-﻿namespace BusinessLayer
+﻿using System.Linq;
+using DataLayer;
+
+namespace BusinessLayer
 {
     public class OrderService
     {
+        private readonly WinkelDbContext _winkelDbContext;
+
+        public OrderService(WinkelDbContext winkelDbContext)
+        {
+            _winkelDbContext = winkelDbContext ?? throw new System.ArgumentNullException(nameof(winkelDbContext));
+        }
+
         public void PlaatsOrder(Order order)
         {
-            var produkt = HaalProduktOp(order.ProduktIdentificatie);
+            var produkt = _winkelDbContext.Produkten.Single(p => p.ProduktIdentificatie.Equals(order.ProduktIdentificatie));
 
             if (order.Aantal >= 10)
             {
@@ -14,11 +24,18 @@
             {
                 order.TotaalPrijs = order.Aantal * produkt.Prijs;
             }
-        }
 
-        private Produkt HaalProduktOp(string produktIdentificatie)
-        {
-            return new Produkt { Prijs = 25.0m, ProduktIdentificatie = produktIdentificatie };
+            var klant = _winkelDbContext.Klanten.Single(k => k.KlantIdentificatie.Equals(order.KlantIdentificatie));
+
+            _winkelDbContext.Orders.Add(new DataLayer.Order
+            {
+                Aantal = order.Aantal,
+                Klant = klant,
+                Produkt = produkt,
+                TotaalPrijs = order.TotaalPrijs
+            });
+
+            _winkelDbContext.SaveChanges();
         }
     }
 }

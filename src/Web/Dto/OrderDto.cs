@@ -2,7 +2,7 @@
 {
     public class OrderDto
     {
-        public int Klantnummer { get; set; }
+        public string KlantIdentificatie { get; set; }
 
         public string ProduktIdentificatie { get; set; }
 
