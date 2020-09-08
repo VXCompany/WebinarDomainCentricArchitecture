@@ -1,9 +1,11 @@
-﻿using DataLayer;
+﻿using System.Linq;
+using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Web.Controllers;
 using Web.Dto;
+using Xunit;
 
 namespace Specifications.Steps
 {
@@ -18,47 +20,24 @@ namespace Specifications.Steps
             _scenarioContext = scenarioContext ?? throw new System.ArgumentNullException(nameof(scenarioContext));
 
             var options = new DbContextOptionsBuilder<WinkelDbContext>()
-                .UseInMemoryDatabase(databaseName: "Winkel")
-                .Options;
+                            .UseInMemoryDatabase(databaseName: "Winkel")
+                            .Options;
 
-            // Insert seed data into the database using one instance of the context
             _winkelDbContext = new WinkelDbContext(options);
         }
 
-        [Given(@"'(.*)' afgenomen produkten")]
-        public void GegevenAfgenomenProdukten(int aantal)
+        [BeforeScenario]
+        public void InitTables()
         {
-            _scenarioContext["aantal"] = aantal;
+            _winkelDbContext.Database.EnsureDeleted();
         }
 
-        [When(@"ik produkten bestel")]
-        public void AlsIkProduktenBestel()
+        [Given(@"de volgende klanten")]
+        public void GegevenDeVolgendeKlanten(Table table)
         {
-            var orderDto = new OrderDto
-            {
-                KlantIdentificatie = "KL123",
-                ProduktIdentificatie = "Appel",
-                Aantal = (int)_scenarioContext["aantal"],
-            };
+            var klanten = table.CreateSet<Klant>();
 
-            var controller = new OrderController(_winkelDbContext);
-
-            controller.PlaatsOrder(orderDto);
-        }
-
-        [Then(@"wordt er '(.*)' procent korting gegeven")]
-        public void DanWordtErProcentKortingGegeven(int korting)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"klant '(.*)'")]
-        public void GegevenKlant(string klantIdentificatie)
-        {
-            _winkelDbContext.Klanten.Add(new Klant
-            {
-                KlantIdentificatie = klantIdentificatie
-            });
+            _winkelDbContext.Klanten.AddRange(klanten);
 
             _winkelDbContext.SaveChanges();
         }
@@ -71,6 +50,40 @@ namespace Specifications.Steps
             _winkelDbContext.Produkten.AddRange(produkten);
 
             _winkelDbContext.SaveChanges();
+        }
+
+        [Given(@"klant '(.*)'")]
+        public void GegevenKlant(string klantIdentificatie)
+        {
+            _scenarioContext["klantIdentificatie"] = klantIdentificatie;
+        }
+
+        [When(@"ik '(.*)' aantal van het produkt '(.*)' bestel")]
+        public void AlsIkAantalVanHetProduktBestel(int aantal, string produktIdentificatie)
+        {
+            _scenarioContext["produktIdentificatie"] = produktIdentificatie;
+            _scenarioContext["aantal"] = aantal;
+
+            var orderDto = new OrderDto
+            {
+                KlantIdentificatie = "KL123",
+                ProduktIdentificatie = "Appel",
+                Aantal = (int)_scenarioContext["aantal"],
+            };
+
+            var controller = new OrderController(_winkelDbContext);
+
+            controller.PlaatsOrder(orderDto);
+        }
+
+        [Then(@"wordt het totaalbedrag '(.*)'")]
+        public void DanWordtHetTotaalbedrag(decimal totaalbedrag)
+        {
+            var klantIdentificatie = _scenarioContext["klantIdentificatie"];
+
+            var order = _winkelDbContext.Orders.Single(o => o.Klant.KlantIdentificatie.Equals(klantIdentificatie));
+
+            Assert.Equal(totaalbedrag, order.TotaalPrijs);
         }
     }
 }
