@@ -21,14 +21,7 @@ namespace Web.Controllers
         {
             var orderService = new OrderService(_winkelDbContext);
 
-            var order = new BusinessLayer.Order
-            {
-                KlantIdentificatie = orderDto.KlantIdentificatie,
-                ProduktIdentificatie = orderDto.ProduktIdentificatie,
-                Aantal = orderDto.Aantal
-            };
-
-            orderService.PlaatsOrder(order);
+            orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProduktIdentificatie, orderDto.Aantal);
         }
     }
 }

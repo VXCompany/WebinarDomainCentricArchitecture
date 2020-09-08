@@ -12,27 +12,29 @@ namespace BusinessLayer
             _winkelDbContext = winkelDbContext ?? throw new System.ArgumentNullException(nameof(winkelDbContext));
         }
 
-        public void PlaatsOrder(Order order)
+        public void PlaatsOrder(string klantIdentificatie, string productIdentificatie, int aantal)
         {
-            var produkt = _winkelDbContext.Produkten.Single(p => p.ProduktIdentificatie.Equals(order.ProduktIdentificatie));
+            var produkt = _winkelDbContext.Produkten.Single(p => p.ProduktIdentificatie.Equals(productIdentificatie));
 
-            if (order.Aantal >= 10)
+            decimal totaalPrijs = 0;
+
+            if (aantal >= 10)
             {
-                order.TotaalPrijs = (order.Aantal * produkt.Prijs) * 0.95m;
+                totaalPrijs = (aantal * produkt.Prijs) * 0.95m;
             }
             else
             {
-                order.TotaalPrijs = order.Aantal * produkt.Prijs;
+                totaalPrijs = aantal * produkt.Prijs;
             }
 
-            var klant = _winkelDbContext.Klanten.Single(k => k.KlantIdentificatie.Equals(order.KlantIdentificatie));
+            var klant = _winkelDbContext.Klanten.Single(k => k.KlantIdentificatie.Equals(klantIdentificatie));
 
-            _winkelDbContext.Orders.Add(new DataLayer.Order
+            _winkelDbContext.Orders.Add(new Order
             {
-                Aantal = order.Aantal,
+                Aantal = aantal,
                 Klant = klant,
                 Produkt = produkt,
-                TotaalPrijs = order.TotaalPrijs
+                TotaalPrijs = totaalPrijs
             });
 
             _winkelDbContext.SaveChanges();
