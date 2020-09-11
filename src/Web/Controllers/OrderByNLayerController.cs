@@ -19,7 +19,9 @@ namespace Web.Controllers
         [Route("api/order/createnlayered")]
         public void Create([FromBody] OrderDto orderDto)
         {
-            var orderService = new OrderService(_winkelDbContext);
+            var prijsBerekenService = new PrijsBerekenService();
+
+            var orderService = new OrderService(_winkelDbContext, prijsBerekenService);
 
             orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProduktIdentificatie, orderDto.Aantal);
         }
