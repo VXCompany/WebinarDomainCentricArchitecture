@@ -73,7 +73,7 @@ namespace Specifications.Steps
 
             var controller = new OrderController(_winkelDbContext);
 
-            controller.PlaatsOrder(orderDto);
+            controller.Create(orderDto);
         }
 
         [Then(@"wordt het totaalbedrag '(.*)'")]
