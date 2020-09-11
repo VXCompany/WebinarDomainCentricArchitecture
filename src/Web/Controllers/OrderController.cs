@@ -5,8 +5,8 @@ using Web.Dto;
 
 namespace Web.Controllers
 {
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    [Route("[controller]")]
     public class OrderController : ControllerBase
     {
         private readonly WinkelDbContext _winkelDbContext;
@@ -17,7 +17,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public void PlaatsOrder(OrderDto orderDto)
+        public void Create([FromBody] OrderDto orderDto)
         {
             var orderService = new OrderService(_winkelDbContext);
 
