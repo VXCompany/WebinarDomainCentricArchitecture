@@ -1,4 +1,4 @@
-﻿namespace Web.Dto
+﻿namespace NLayer.Web.Dto
 {
     public class OrderDto
     {

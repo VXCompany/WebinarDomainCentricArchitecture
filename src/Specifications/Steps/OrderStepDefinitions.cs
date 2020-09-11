@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
+using NLayer.Web.Controllers;
+using NLayer.Web.Dto;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using Web.Controllers;
-using Web.Dto;
 using Xunit;
 
 namespace Specifications.Steps
@@ -71,7 +71,7 @@ namespace Specifications.Steps
                 Aantal = (int)_scenarioContext["aantal"],
             };
 
-            var controller = new OrderByNLayerController(_winkelDbContext);
+            var controller = new OrderController(_winkelDbContext);
 
             controller.Create(orderDto);
         }
