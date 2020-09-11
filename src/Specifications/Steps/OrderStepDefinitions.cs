@@ -71,7 +71,7 @@ namespace Specifications.Steps
                 Aantal = (int)_scenarioContext["aantal"],
             };
 
-            var controller = new OrderController(_winkelDbContext);
+            var controller = new OrderByNLayerController(_winkelDbContext);
 
             controller.Create(orderDto);
         }
