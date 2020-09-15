@@ -5,14 +5,14 @@ using Domain.Services;
 
 namespace ApplicationServices
 {
-    public class OrderService : IOrderService
+    public class OrderMetKortingUsecase : IOrderMetKortingUsecase
     {
         private readonly IKlantRepository _klantRepository;
         private readonly IProduktRepository _produktRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public OrderService(
+        public OrderMetKortingUsecase(
             IKlantRepository klantRepository,
             IProduktRepository produktRepository,
             IOrderRepository orderRepository,

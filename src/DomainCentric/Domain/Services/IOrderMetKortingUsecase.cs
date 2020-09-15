@@ -1,6 +1,6 @@
 ﻿namespace Domain.Services
 {
-    public interface IOrderService
+    public interface IOrderMetKortingUsecase
     {
         void PlaatsOrder(string klantIdentificatie, string produktIdentificatie, int aantal);
     }

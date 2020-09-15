@@ -27,7 +27,6 @@ namespace DomainCentric.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Data store registraties
-
             services.AddScoped(wdbctx =>
             {
                 var options = new DbContextOptionsBuilder<WinkelDbContext>()
@@ -49,7 +48,7 @@ namespace DomainCentric.Web
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Application service registraties
-            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderMetKortingUsecase, OrderMetKortingUsecase>();
 
             services.AddControllers();
         }
