@@ -191,3 +191,6 @@ $RECYCLE.BIN/
 
 # WPF temp projects
 *wpftmp.*
+
+# Local entries
+*.feature.cs
