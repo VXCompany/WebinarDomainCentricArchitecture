@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using BusinessLayer;
 using DataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,8 @@ namespace NLayer.Web
 
                 return winkelDbContext;
             });
+            
+            services.AddScoped<ProduktService>();
 
             services.AddControllers();
         }
