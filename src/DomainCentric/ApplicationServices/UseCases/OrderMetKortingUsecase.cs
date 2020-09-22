@@ -3,7 +3,7 @@ using Domain.Model.Orders;
 using Domain.Repositories;
 using Domain.Services;
 
-namespace ApplicationServices
+namespace ApplicationServices.UseCases
 {
     public class OrderMetKortingUsecase : IOrderMetKortingUsecase
     {

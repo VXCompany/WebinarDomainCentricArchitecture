@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ApplicationServices;
+using ApplicationServices.UseCases;
 using Domain.Repositories;
 using Domain.Services;
 using Infrastructure.EFSqlStore;
