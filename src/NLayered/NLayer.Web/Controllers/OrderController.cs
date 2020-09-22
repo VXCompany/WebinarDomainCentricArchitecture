@@ -19,9 +19,7 @@ namespace NLayer.Web.Controllers
         [HttpPost]
         public void Create([FromBody] OrderDto orderDto)
         {
-            var prijsBerekenService = new PrijsBerekenService();
-
-            var orderService = new OrderService(_winkelDbContext, prijsBerekenService);
+            var orderService = new OrderService(_winkelDbContext);
 
             orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProduktIdentificatie, orderDto.Aantal);
         }
