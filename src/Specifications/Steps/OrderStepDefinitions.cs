@@ -67,7 +67,7 @@ namespace Specifications.Steps
             var orderDto = new OrderDto
             {
                 KlantIdentificatie = "KL123",
-                ProductIdentificatie = "Appel",
+                ProductIdentificatie = ProductIdentificatie,
                 Aantal = (int)_scenarioContext["aantal"],
             };
 

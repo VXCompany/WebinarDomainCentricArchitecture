@@ -16,7 +16,7 @@ namespace BusinessLayer
         {
             var product = _winkelDbContext.Producten.Single(p => p.ProductIdentificatie.Equals(productIdentificatie));
 
-            var totaalPrijs = BerekenTotaalPrijs(product.Prijs, aantal);
+            var totaalPrijs = BerekenTotaalPrijs(product.Prijs, aantal, productIdentificatie);
 
             var klant = _winkelDbContext.Klanten.Single(k => k.KlantIdentificatie.Equals(klantIdentificatie));
 
@@ -31,11 +31,11 @@ namespace BusinessLayer
             _winkelDbContext.SaveChanges();
         }
 
-        private decimal BerekenTotaalPrijs(decimal stukprijs, int aantal)
+        private decimal BerekenTotaalPrijs(decimal stukprijs, int aantal, string productIdentificatie)
         {
             decimal totaalPrijs = 0;
 
-            if (aantal >= 10)
+            if (aantal >= 10 && productIdentificatie == "Appel")
             {
                 totaalPrijs = (aantal * stukprijs) * 0.95m;
             }
