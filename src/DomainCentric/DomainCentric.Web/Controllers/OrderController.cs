@@ -9,17 +9,17 @@ namespace DomainCentric.Web.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IOrderMetKortingUsecase _orderService;
+        private readonly IOrderMetKortingUsecase _orderMetKortingUsecase;
 
-        public OrderController(IOrderMetKortingUsecase orderService)
+        public OrderController(IOrderMetKortingUsecase orderMetKortingUsecase)
         {
-            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _orderMetKortingUsecase = orderMetKortingUsecase ?? throw new ArgumentNullException(nameof(orderMetKortingUsecase));
         }
 
         [HttpPost]
         public void Create([FromBody] OrderDto orderDto)
         {
-            _orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProductIdentificatie, orderDto.Aantal);
+            _orderMetKortingUsecase.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProductIdentificatie, orderDto.Aantal);
         }
     }
 }
