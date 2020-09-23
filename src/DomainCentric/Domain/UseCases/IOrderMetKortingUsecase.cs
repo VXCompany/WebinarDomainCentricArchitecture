@@ -1,4 +1,4 @@
-﻿namespace Domain.Services
+﻿namespace Domain.UseCases
 {
     public interface IOrderMetKortingUsecase
     {

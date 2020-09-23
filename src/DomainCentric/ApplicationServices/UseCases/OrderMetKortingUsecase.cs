@@ -1,7 +1,7 @@
 ﻿using System;
 using Domain.Model.Orders;
 using Domain.Repositories;
-using Domain.Services;
+using Domain.UseCases;
 
 namespace ApplicationServices.UseCases
 {

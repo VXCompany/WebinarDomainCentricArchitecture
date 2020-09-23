@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ApplicationServices.UseCases;
 using Domain.Repositories;
-using Domain.Services;
+using Domain.UseCases;
 using Infrastructure.EFSqlStore;
 using Infrastructure.EFSqlStore.Model;
 using Infrastructure.EFSqlStore.Repositories;
@@ -49,6 +49,7 @@ namespace DomainCentric.Web
 
             // Application service registraties
             services.AddScoped<IOrderMetKortingUsecase, OrderMetKortingUsecase>();
+            services.AddScoped<IToonProductenUseCase, ToonProductenUsecase>();
 
             services.AddControllers();
         }

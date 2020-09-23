@@ -1,5 +1,5 @@
 ﻿using System;
-using Domain.Services;
+using Domain.UseCases;
 using DomainCentric.Web.Dto;
 using Microsoft.AspNetCore.Mvc;
 
