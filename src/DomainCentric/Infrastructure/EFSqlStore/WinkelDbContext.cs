@@ -11,7 +11,7 @@ namespace Infrastructure.EFSqlStore
 
         public DbSet<Klant> Klanten { get; set; }
 
-        public DbSet<Produkt> Produkten { get; set; }
+        public DbSet<Product> Producten { get; set; }
 
         public DbSet<Order> Orders { get; set; }
     }

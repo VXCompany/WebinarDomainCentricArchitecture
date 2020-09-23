@@ -7,23 +7,23 @@ namespace NLayer.Web.Controllers
 {
     [Route("api/{controller}/{action}")]
     [ApiController]
-    public class ProduktController : ControllerBase
+    public class ProductController : ControllerBase
     {
         private readonly WinkelDbContext _winkelDbContext;
-        private readonly ProduktService _produktService;
+        private readonly ProductService _productService;
 
-        public ProduktController(WinkelDbContext winkelDbContext, ProduktService produktService)
+        public ProductController(WinkelDbContext winkelDbContext, ProductService productService)
         {
             _winkelDbContext = winkelDbContext ?? throw new System.ArgumentNullException(nameof(winkelDbContext));
-            _produktService = produktService ?? throw new System.ArgumentNullException(nameof(produktService));
+            _productService = productService ?? throw new System.ArgumentNullException(nameof(productService));
         }
 
         [HttpGet]
-        public IEnumerable<Produkt> Get()
+        public IEnumerable<Product> Get()
         {
-            var produkten = _produktService.GetProducten();
+            var producten = _productService.GetProducten();
 
-            return produkten;
+            return producten;
         }
     }
 }

@@ -8,28 +8,28 @@ namespace ApplicationServices.UseCases
     public class OrderMetKortingUsecase : IOrderMetKortingUsecase
     {
         private readonly IKlantRepository _klantRepository;
-        private readonly IProduktRepository _produktRepository;
+        private readonly IProductRepository _productRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public OrderMetKortingUsecase(
             IKlantRepository klantRepository,
-            IProduktRepository produktRepository,
+            IProductRepository productRepository,
             IOrderRepository orderRepository,
             IUnitOfWork unitOfWork)
         {
             _klantRepository = klantRepository ?? throw new ArgumentNullException(nameof(klantRepository));
-            _produktRepository = produktRepository ?? throw new ArgumentNullException(nameof(produktRepository));
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public void PlaatsOrder(string klantIdentificatie, string produktIdentificatie, int aantal)
+        public void PlaatsOrder(string klantIdentificatie, string productIdentificatie, int aantal)
         {
             var klant = _klantRepository.GetByKlantIdentificatie(klantIdentificatie);
-            var produkt = _produktRepository.GetByProduktIdentificatie(produktIdentificatie);
+            var product = _productRepository.GetByProductIdentificatie(productIdentificatie);
 
-            var order = new Order(klant, produkt);
+            var order = new Order(klant, product);
 
             order.Plaats(aantal);
 

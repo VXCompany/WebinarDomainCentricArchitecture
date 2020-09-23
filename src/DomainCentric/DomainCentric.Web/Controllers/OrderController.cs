@@ -19,7 +19,7 @@ namespace DomainCentric.Web.Controllers
         [HttpPost]
         public void Create([FromBody] OrderDto orderDto)
         {
-            _orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProduktIdentificatie, orderDto.Aantal);
+            _orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProductIdentificatie, orderDto.Aantal);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace DomainCentric.Web
             });
 
             services.AddScoped<IKlantRepository, KlantRepository>();
-            services.AddScoped<IProduktRepository, ProduktRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -83,17 +83,17 @@ namespace DomainCentric.Web
                 });
             }
 
-            if (!winkelDbContext.Produkten.Any())
+            if (!winkelDbContext.Producten.Any())
             {
-                winkelDbContext.Produkten.Add(new Produkt
+                winkelDbContext.Producten.Add(new Product
                 {
-                    ProduktIdentificatie = "Appel",
+                    ProductIdentificatie = "Appel",
                     Prijs = 0.56m
                 });
 
-                winkelDbContext.Produkten.Add(new Produkt
+                winkelDbContext.Producten.Add(new Product
                 {
-                    ProduktIdentificatie = "Peer",
+                    ProductIdentificatie = "Peer",
                     Prijs = 0.32m
                 });
             }

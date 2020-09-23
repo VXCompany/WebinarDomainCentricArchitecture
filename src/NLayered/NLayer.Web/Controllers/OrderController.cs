@@ -21,7 +21,7 @@ namespace NLayer.Web.Controllers
         {
             var orderService = new OrderService(_winkelDbContext);
 
-            orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProduktIdentificatie, orderDto.Aantal);
+            orderService.PlaatsOrder(orderDto.KlantIdentificatie, orderDto.ProductIdentificatie, orderDto.Aantal);
         }
     }
 }

@@ -14,9 +14,9 @@ namespace BusinessLayer
 
         public void PlaatsOrder(string klantIdentificatie, string productIdentificatie, int aantal)
         {
-            var produkt = _winkelDbContext.Produkten.Single(p => p.ProduktIdentificatie.Equals(productIdentificatie));
+            var product = _winkelDbContext.Producten.Single(p => p.ProductIdentificatie.Equals(productIdentificatie));
 
-            var totaalPrijs = BerekenTotaalPrijs(produkt.Prijs, aantal);
+            var totaalPrijs = BerekenTotaalPrijs(product.Prijs, aantal);
 
             var klant = _winkelDbContext.Klanten.Single(k => k.KlantIdentificatie.Equals(klantIdentificatie));
 
@@ -24,7 +24,7 @@ namespace BusinessLayer
             {
                 Aantal = aantal,
                 Klant = klant,
-                Produkt = produkt,
+                Product = product,
                 TotaalPrijs = totaalPrijs
             });
 

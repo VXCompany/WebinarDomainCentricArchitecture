@@ -6,7 +6,7 @@
 
         public Klant Klant { get; set; }
 
-        public Produkt Produkt { get; set; }
+        public Product Product { get; set; }
 
         public int Aantal { get; set; }
 

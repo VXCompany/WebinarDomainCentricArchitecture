@@ -1,15 +1,15 @@
 ﻿using System;
 using Domain.Model.Klanten;
-using Domain.Model.Produkten;
+using Domain.Model.Producten;
 
 namespace Domain.Model.Orders
 {
     public class Order
     {
-        public Order(Klant klant, Produkt produkt)
+        public Order(Klant klant, Product product)
         {
             Klant = klant ?? throw new ArgumentNullException(nameof(klant));
-            Produkt = produkt ?? throw new ArgumentNullException(nameof(produkt));
+            Product = product ?? throw new ArgumentNullException(nameof(product));
         }
 
         public void Plaats(int aantal)
@@ -18,11 +18,11 @@ namespace Domain.Model.Orders
 
             if (aantal >= 10)
             {
-                TotaalPrijs = (aantal * Produkt.Prijs) * 0.95m;
+                TotaalPrijs = (aantal * Product.Prijs) * 0.95m;
             }
             else
             {
-                TotaalPrijs = aantal * Produkt.Prijs;
+                TotaalPrijs = aantal * Product.Prijs;
             }
 
             Aantal = aantal;
@@ -30,7 +30,7 @@ namespace Domain.Model.Orders
 
         public Klant Klant { get; private set; }
 
-        public Produkt Produkt { get; private set; }
+        public Product Product { get; private set; }
 
         public decimal TotaalPrijs { get; private set; }
 

@@ -2,6 +2,6 @@
 {
     public interface IOrderMetKortingUsecase
     {
-        void PlaatsOrder(string klantIdentificatie, string produktIdentificatie, int aantal);
+        void PlaatsOrder(string klantIdentificatie, string productIdentificatie, int aantal);
     }
 }

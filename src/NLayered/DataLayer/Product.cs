@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Infrastructure.EFSqlStore.Model
+namespace DataLayer
 {
     [Table("Producten")]
     public class Product

@@ -37,7 +37,7 @@ namespace NLayer.Web
                 return winkelDbContext;
             });
             
-            services.AddScoped<ProduktService>();
+            services.AddScoped<ProductService>();
 
             services.AddControllers();
         }
@@ -72,17 +72,17 @@ namespace NLayer.Web
                 });
             }
 
-            if (!winkelDbContext.Produkten.Any())
+            if (!winkelDbContext.Producten.Any())
             {
-                winkelDbContext.Produkten.Add(new Produkt
+                winkelDbContext.Producten.Add(new Product
                 {
-                    ProduktIdentificatie = "Appel",
+                    ProductIdentificatie = "Appel",
                     Prijs = 0.56m
                 });
 
-                winkelDbContext.Produkten.Add(new Produkt
+                winkelDbContext.Producten.Add(new Product
                 {
-                    ProduktIdentificatie = "Peer",
+                    ProductIdentificatie = "Peer",
                     Prijs = 0.32m
                 });
             }

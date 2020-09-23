@@ -1,8 +1,8 @@
-﻿namespace Domain.Model.Produkten
+﻿namespace Domain.Model.Producten
 {
-    public class Produkt
+    public class Product
     {
-        public Produkt(string identificatie, decimal prijs)
+        public Product(string identificatie, decimal prijs)
         {
             Identificatie = identificatie;
             Prijs = prijs;

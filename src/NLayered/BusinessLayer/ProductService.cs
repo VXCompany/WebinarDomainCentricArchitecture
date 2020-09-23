@@ -4,18 +4,18 @@ using DataLayer;
 
 namespace BusinessLayer
 {
-    public class ProduktService
+    public class ProductService
     {
         private readonly WinkelDbContext _winkelDbContext;
 
-        public ProduktService(WinkelDbContext winkelDbContext)
+        public ProductService(WinkelDbContext winkelDbContext)
         {
             _winkelDbContext = winkelDbContext ?? throw new System.ArgumentNullException(nameof(winkelDbContext));
         }
         
-        public IEnumerable<Produkt> GetProducten()
+        public IEnumerable<Product> GetProducten()
         {
-            return _winkelDbContext.Produkten.ToList();
+            return _winkelDbContext.Producten.ToList();
         }
     }
 }

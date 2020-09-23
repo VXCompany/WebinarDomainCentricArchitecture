@@ -4,7 +4,7 @@
     {
         public string KlantIdentificatie { get; set; }
 
-        public string ProduktIdentificatie { get; set; }
+        public string ProductIdentificatie { get; set; }
 
         public int Aantal { get; set; }
     }

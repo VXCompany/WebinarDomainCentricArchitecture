@@ -42,12 +42,12 @@ namespace Specifications.Steps
             _winkelDbContext.SaveChanges();
         }
 
-        [Given(@"de volgende produkten")]
-        public void GegevenDeVolgendeProdukten(Table table)
+        [Given(@"de volgende producten")]
+        public void GegevenDeVolgendeProducten(Table table)
         {
-            var produkten = table.CreateSet<Produkt>();
+            var producten = table.CreateSet<Product>();
 
-            _winkelDbContext.Produkten.AddRange(produkten);
+            _winkelDbContext.Producten.AddRange(producten);
 
             _winkelDbContext.SaveChanges();
         }
@@ -58,16 +58,16 @@ namespace Specifications.Steps
             _scenarioContext["klantIdentificatie"] = klantIdentificatie;
         }
 
-        [When(@"ik '(.*)' aantal van het produkt '(.*)' bestel")]
-        public void AlsIkAantalVanHetProduktBestel(int aantal, string produktIdentificatie)
+        [When(@"ik '(.*)' aantal van het product '(.*)' bestel")]
+        public void AlsIkAantalVanHetProductBestel(int aantal, string ProductIdentificatie)
         {
-            _scenarioContext["produktIdentificatie"] = produktIdentificatie;
+            _scenarioContext["ProductIdentificatie"] = ProductIdentificatie;
             _scenarioContext["aantal"] = aantal;
 
             var orderDto = new OrderDto
             {
                 KlantIdentificatie = "KL123",
-                ProduktIdentificatie = "Appel",
+                ProductIdentificatie = "Appel",
                 Aantal = (int)_scenarioContext["aantal"],
             };
 

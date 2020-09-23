@@ -19,14 +19,14 @@ namespace Infrastructure.EFSqlStore.Repositories
             var klant = _winkelDbContext.Klanten
                 .Single(k => k.KlantIdentificatie.Equals(order.Klant.KlantIdentificatie));
 
-            var produkt = _winkelDbContext.Produkten
-                .Single(p => p.ProduktIdentificatie.Equals(order.Produkt.Identificatie));
+            var product = _winkelDbContext.Producten
+                .Single(p => p.ProductIdentificatie.Equals(order.Product.Identificatie));
 
             _winkelDbContext.Orders.Add(new Order
             {
                 Aantal = order.Aantal,
                 Klant = klant,
-                Produkt = produkt,
+                Product = product,
                 TotaalPrijs = order.TotaalPrijs
             });
         }
