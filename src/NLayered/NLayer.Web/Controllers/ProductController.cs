@@ -9,12 +9,10 @@ namespace NLayer.Web.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly WinkelDbContext _winkelDbContext;
         private readonly ProductService _productService;
 
-        public ProductController(WinkelDbContext winkelDbContext, ProductService productService)
+        public ProductController(ProductService productService)
         {
-            _winkelDbContext = winkelDbContext ?? throw new System.ArgumentNullException(nameof(winkelDbContext));
             _productService = productService ?? throw new System.ArgumentNullException(nameof(productService));
         }
 
