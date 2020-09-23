@@ -21,17 +21,20 @@ namespace NLayer.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var options = new DbContextOptionsBuilder<WinkelDbContext>()
+            services.AddScoped(wdbctx =>
+            {
+                var options = new DbContextOptionsBuilder<WinkelDbContext>()
                            .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Winkel;Integrated Security=True")
                            .Options;
 
-            var winkelDbContext = new WinkelDbContext(options);
+                var winkelDbContext = new WinkelDbContext(options);
 
-            winkelDbContext.Database.EnsureCreated();
+                winkelDbContext.Database.EnsureCreated();
 
-            VulTabellen(winkelDbContext);
+                VulTabellen(winkelDbContext);
 
-            services.AddScoped(_ => winkelDbContext);
+                return winkelDbContext;
+            });
 
             services.AddControllers();
         }
