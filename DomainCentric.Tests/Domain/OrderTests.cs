@@ -1,5 +1,4 @@
-﻿using System;
-using Domain.Model.Klanten;
+﻿using Domain.Model.Klanten;
 using Domain.Model.Orders;
 using Domain.Model.Producten;
 using Xunit;
