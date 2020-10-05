@@ -21,7 +21,7 @@ namespace DomainCentric.Tests.Domain
             Assert.Equal(1.6m, order.TotaalPrijs);
         }
 
-        [Theory(DisplayName = "Als je 10 of meer Appels bestelt krijg je 5% korting")]
+        [Theory(DisplayName = "Als je 10 of meer Appels bestelt, krijg je 5% korting")]
         [InlineData("Appel", 1, 0.6)]
         [InlineData("Appel", 9, 5.4)]
         [InlineData("Appel", 10, 5.7)]
