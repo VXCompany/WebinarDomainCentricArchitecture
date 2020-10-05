@@ -16,7 +16,7 @@ namespace Domain.Model.Orders
         {
             TotaalPrijs = 0.0m;
 
-            if (aantal >= 10)
+            if (aantal >= 10 && Product.Identificatie == "Appel")
             {
                 TotaalPrijs = (aantal * Product.Prijs) * 0.95m;
             }
